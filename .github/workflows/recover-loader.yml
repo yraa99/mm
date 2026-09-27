@@ -1,0 +1,112 @@
+name: Recover Loader
+
+on:
+  push:
+    paths:
+      - 'Loader.zip'
+      - '.github/workflows/recover-loader.yml'
+  workflow_dispatch:
+
+jobs:
+  recover:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract Loader.zip
+        shell: pwsh
+        run: |
+          if (!(Test-Path 'Loader.zip')) { throw 'Loader.zip not found' }
+          New-Item -ItemType Directory -Force -Path work | Out-Null
+          Expand-Archive -LiteralPath 'Loader.zip' -DestinationPath 'work\zip' -Force
+          $exe = Get-ChildItem 'work\zip' -Recurse -Filter 'Loader.exe' | Select-Object -First 1
+          if (!$exe) { throw 'Loader.exe not found inside Loader.zip' }
+          Copy-Item $exe.FullName 'work\Loader.exe' -Force
+          Write-Host 'Loader.exe:' $exe.FullName
+          Get-FileHash 'work\Loader.exe' -Algorithm SHA1
+          Get-FileHash 'work\Loader.exe' -Algorithm SHA256
+
+      - name: Build UnConfuserEx
+        shell: pwsh
+        run: |
+          git clone --depth 1 https://github.com/Zypherion-Technologies/UnConfuserEx.git work\UnConfuserEx
+          dotnet build work\UnConfuserEx\UnConfuserEx.sln -c Release
+
+      - name: Deobfuscate Loader
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          $tool = Get-ChildItem 'work\UnConfuserEx' -Recurse -Filter 'UnConfuserEx.exe' | Where-Object { $_.FullName -match '\\bin\\Release\\' } | Select-Object -First 1
+          if (!$tool) { throw 'UnConfuserEx.exe not found after build' }
+          & $tool.FullName 'work\Loader.exe' 'work\Loader.clean.exe' --rebuild-embedded-pe
+          Write-Host 'exit code:' $LASTEXITCODE
+          if (Test-Path 'work\Loader.clean.exe') {
+            Get-FileHash 'work\Loader.clean.exe' -Algorithm SHA256
+          }
+
+      - name: Install ILSpy command line
+        shell: pwsh
+        run: |
+          dotnet tool install --global ilspycmd
+          $env:PATH += ';' + $env:USERPROFILE + '\.dotnet\tools'
+          ilspycmd --version
+
+      - name: Decompile recovered assemblies
+        shell: pwsh
+        run: |
+          $env:PATH += ';' + $env:USERPROFILE + '\.dotnet\tools'
+          New-Item -ItemType Directory -Force -Path 'work\decompiled' | Out-Null
+          foreach ($f in @('work\Loader.exe','work\Loader.clean.exe')) {
+            if (Test-Path $f) {
+              $name = [IO.Path]::GetFileNameWithoutExtension($f)
+              New-Item -ItemType Directory -Force -Path ('work\decompiled\' + $name) | Out-Null
+              ilspycmd -p -o ('work\decompiled\' + $name) $f
+            }
+          }
+
+      - name: Search for HWID and key generation
+        shell: pwsh
+        run: |
+          $patterns = @(
+            'HWID','HWID','MachineGuid','Win32_Processor','ProcessorId',
+            'ManagementObjectSearcher','BaseBoard','BIOS','SerialNumber',
+            'GenerateKey','KeyHWID','keyhwid','MD5','SHA1','SHA256',
+            'SHA512','AES','Rijndael','RSA','license','activation',
+            'Environment\.MachineName','UserName'
+          )
+          $files = Get-ChildItem 'work\decompiled' -Recurse -File -ErrorAction SilentlyContinue
+          if ($files) {
+            $hits = $files | Select-String -Pattern $patterns -SimpleMatch:$false -CaseSensitive:$false
+            if ($hits) { $hits | Out-File 'work\HWID-search.txt' -Encoding utf8 }
+            else { 'No HWID/key strings found in decompiled output.' | Out-File 'work\HWID-search.txt' -Encoding utf8 }
+          }
+
+      - name: Collect loader metadata
+        shell: pwsh
+        run: |
+          $out = 'work\REPORT.txt'
+          '=== Loader recovery report ===' | Out-File $out
+          (Get-Item 'work\Loader.exe' | Format-List FullName,Length,LastWriteTime | Out-String) | Add-Content $out
+          (Get-FileHash 'work\Loader.exe' -Algorithm SHA1 | Out-String) | Add-Content $out
+          (Get-FileHash 'work\Loader.exe' -Algorithm SHA256 | Out-String) | Add-Content $out
+          if (Test-Path 'work\Loader.clean.exe') {
+            '=== Clean assembly ===' | Add-Content $out
+            (Get-Item 'work\Loader.clean.exe' | Format-List FullName,Length | Out-String) | Add-Content $out
+            (Get-FileHash 'work\Loader.clean.exe' -Algorithm SHA256 | Out-String) | Add-Content $out
+          }
+          '=== Decompiled files ===' | Add-Content $out
+          (Get-ChildItem 'work\decompiled' -Recurse -File | Select-Object FullName,Length | Format-Table -AutoSize | Out-String) | Add-Content $out
+
+      - name: Upload recovered artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: loader-recovery
+          path: |
+            work/Loader.exe
+            work/Loader.clean.exe
+            work/HWID-search.txt
+            work/REPORT.txt
+            work/decompiled/**
+          if-no-files-found: warn
