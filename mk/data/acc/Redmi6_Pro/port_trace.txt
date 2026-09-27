@@ -1,0 +1,511 @@
+
+15:43:19: INFO: FH_LOADER WAS CALLED EXACTLY LIKE THIS
+************************************************
+fh_loader.exe --port=\\.\COM3 --sendxml=rawprogram0.xml --search_path=D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro 
+************************************************
+
+15:43:19: DEBUG: Binary build date: May  9 2017 @ 03:56:18
+
+15:43:19: DEBUG: Build Version: 17.05. 9.03.56.18
+
+15:43:19: INFO: Current working dir (cwd): D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\
+15:43:19: INFO: Showing network mappings to allow debugging
+15:43:21: DEBUG: New connections will be remembered.
+
+15:43:21: DEBUG: 
+
+15:43:21: DEBUG: There are no entries in the list.
+
+15:43:21: DEBUG: 
+
+15:43:21: INFO: 
+
+
+
+15:43:21: INFO: Trying to store 'rawprogram0.xml' in string table
+15:43:21: DEBUG: ==================================================================================
+15:43:21: DEBUG: ==================================================================================
+15:43:21: INFO: Looking for file 'rawprogram0.xml'
+15:43:21: DEBUG: 1. Calling stat(D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\rawprogram0.xml')
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\rawprogram0.xml') with AccessMode='rb'
+15:43:21: DEBUG: Trying get filesize, calling fseek()
+15:43:21: DEBUG: Found 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\rawprogram0.xml' (13760 bytes)
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\rawprogram0.xml') with AccessMode='r'
+15:43:21: DEBUG: Trying get filesize, calling fseek()
+15:43:21: DEBUG: ==================================================================================
+15:43:21: DEBUG: ==================================================================================
+15:43:21: INFO: Looking for file 'persist.img'
+15:43:21: DEBUG: 1. Calling stat(D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img')
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img') with AccessMode='rb'
+15:43:21: DEBUG: Trying get filesize, calling fseek()
+15:43:21: DEBUG: Found 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img' (249956 bytes)
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img') with AccessMode='rb'
+15:43:21: INFO: Reading through sparse file 'persist.img' and pulling out relevant header information...
+15:43:21: INFO: File persist.img is a sparse file, being split up into 3 separate XML tags
+15:43:21: INFO: User wants to talk to port '\\.\COM3'
+15:43:21: DEBUG: port_fd=0xC8
+
+15:43:21: INFO: Took       0.00000000 seconds to open port
+15:43:21: INFO: Sorting TAGS to ensure order is <configure>,<erase>, others, <patch>,<power>
+15:43:21: INFO: If  you don't want this, use --dontsorttags
+
+15:43:21: INFO: Sending <configure>
+15:43:21: DEBUG: CHANNEL DATA (P0000) (H00202) (    228 bytes) - HOST TO TARGET -->
+===========================================================================================================
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+<configure MemoryName="eMMC" Verbose="0" AlwaysValidate="0" MaxDigestTableSizeInBytes="8192" MaxPayloadSizeToTargetInBytes="1048576" ZlpAwareHost="1" SkipStorageInit="0" />
+</data>
+
+============================================================================================================
+
+15:43:21: DEBUG: CharsInBuffer=0 Trying to read from USB 8192 bytes
+15:43:21: DEBUG: CHANNEL DATA (400 bytes) <-- TARGET to HOST
+15:43:21: DEBUG: CharsInBuffer = 400
+15:43:21: DEBUG: printBuffer:5374 PRETTYPRINT Buffer is 400 bytes
+
+15:43:21: DEBUG: printBuffer:5451 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+15:43:21: DEBUG: printBuffer:5451 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+15:43:21: DEBUG: printBuffer:5451 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+15:43:21: DEBUG: printBuffer:5451 67 20 76 61 6C 75 65 3D 22 6C 6F 67 62 75 66 40 g value="logbuf@
+15:43:21: DEBUG: printBuffer:5451 30 78 30 38 30 37 33 39 30 30 20 66 68 40 30 78 0x08073900 fh@0x
+15:43:21: DEBUG: printBuffer:5451 30 38 30 37 30 37 36 38 22 20 2F 3E 3C 2F 64 61 08070768" /></da
+15:43:21: DEBUG: printBuffer:5451 74 61 3E 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E ta><?xml version
+15:43:21: DEBUG: printBuffer:5451 3D 22 31 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D ="1.0" encoding=
+15:43:21: DEBUG: printBuffer:5451 22 55 54 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E "UTF-8" ?><data>
+15:43:21: DEBUG: printBuffer:5451 3C 72 65 73 70 6F 6E 73 65 20 76 61 6C 75 65 3D <response value=
+15:43:21: DEBUG: printBuffer:5451 22 41 43 4B 22 20 4D 69 6E 56 65 72 73 69 6F 6E "ACK" MinVersion
+15:43:21: DEBUG: printBuffer:5451 53 75 70 70 6F 72 74 65 64 3D 22 31 22 20 4D 65 Supported="1" Me
+15:43:21: DEBUG: printBuffer:5451 6D 6F 72 79 4E 61 6D 65 3D 22 65 4D 4D 43 22 20 moryName="eMMC" 
+15:43:21: DEBUG: printBuffer:5451 4D 61 78 50 61 79 6C 6F 61 64 53 69 7A 65 46 72 MaxPayloadSizeFr
+15:43:21: DEBUG: printBuffer:5451 6F 6D 54 61 72 67 65 74 49 6E 42 79 74 65 73 3D omTargetInBytes=
+15:43:21: DEBUG: printBuffer:5451 22 34 30 39 36 22 20 4D 61 78 50 61 79 6C 6F 61 "4096" MaxPayloa
+15:43:21: DEBUG: printBuffer:5451 64 53 69 7A 65 54 6F 54 61 72 67 65 74 49 6E 42 dSizeToTargetInB
+15:43:21: DEBUG: printBuffer:5451 79 74 65 73 3D 22 31 30 34 38 35 37 36 22 20 4D ytes="1048576" M
+15:43:21: DEBUG: printBuffer:5451 61 78 50 61 79 6C 6F 61 64 53 69 7A 65 54 6F 54 axPayloadSizeToT
+15:43:21: DEBUG: printBuffer:5451 61 72 67 65 74 49 6E 42 79 74 65 73 53 75 70 70 argetInBytesSupp
+15:43:21: DEBUG: printBuffer:5451 6F 72 74 65 64 3D 22 31 30 34 38 35 37 36 22 20 orted="1048576" 
+15:43:21: DEBUG: printBuffer:5451 4D 61 78 58 4D 4C 53 69 7A 65 49 6E 42 79 74 65 MaxXMLSizeInByte
+15:43:21: DEBUG: printBuffer:5451 73 3D 22 34 30 39 36 22 20 56 65 72 73 69 6F 6E s="4096" Version
+15:43:21: DEBUG: printBuffer:5451 3D 22 31 22 20 54 61 72 67 65 74 4E 61 6D 65 3D ="1" TargetName=
+15:43:21: DEBUG: printBuffer:5451 22 38 39 35 33 22 20 2F 3E 3C 2F 64 61 74 61 3E "8953" /></data>
+15:43:21: DEBUG: printBuffer:5464 
+
+
+15:43:21: DEBUG: XML FILE (99 bytes): CharsInBuffer=400-99=301
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="logbuf@0x08073900 fh@0x08070768" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: INFO: TARGET SAID: 'logbuf@0x08073900 fh@0x08070768'
+15:43:21: DEBUG: XML FILE (301 bytes): CharsInBuffer=301-301=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" MinVersionSupported="1" MemoryName="eMMC" MaxPayloadSizeFromTargetInBytes="4096" MaxPayloadSizeToTargetInBytes="1048576" MaxPayloadSizeToTargetInBytesSupported="1048576" MaxXMLSizeInBytes="4096" Version="1" TargetName="8953" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: DEBUG: Response was 'ACK'
+15:43:21: INFO: fh.attrs.MaxPayloadSizeToTargetInBytes = 1048576
+15:43:21: INFO: fh.attrs.MaxPayloadSizeToTargetInBytesSupported = 1048576
+15:43:21: DEBUG: Got the ACK for the <configure>
+15:43:21: INFO: In handleProgram('dummy.img')
+15:43:21: DEBUG: ==================================================================================
+15:43:21: DEBUG: ==================================================================================
+15:43:21: INFO: Looking for file 'dummy.img'
+15:43:21: DEBUG: 1. Calling stat(D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\dummy.img')
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\dummy.img') with AccessMode='rb'
+15:43:21: DEBUG: Trying get filesize, calling fseek()
+15:43:21: DEBUG: Found 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\dummy.img' (8192 bytes)
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\dummy.img') with AccessMode='rb'
+15:43:21: DEBUG: Trying get filesize, calling fseek()
+15:43:21: DEBUG: File size is 8192 bytes
+15:43:21: DEBUG: NumSectors needed 16
+15:43:21: INFO: =======================================================
+15:43:21: INFO: {<program> FILE: 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\dummy.img'}
+15:43:21: INFO: {<program> (8.00 KB) 16 sectors needed at location 320 on LUN 0}
+15:43:21: INFO: =======================================================
+
+15:43:21: DEBUG: CHANNEL DATA (P0001) (H00203) (    286 bytes) - HOST TO TARGET -->
+===========================================================================================================
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+<program SECTOR_SIZE_IN_BYTES="512" file_sector_offset="0" filename="dummy.img" label="config" num_partition_sectors="16" physical_partition_number="0" size_in_KB="32.0" sparse="false" start_byte_hex="0x28000" start_sector="320" />
+</data>
+============================================================================================================
+
+15:43:21: DEBUG: CharsInBuffer=0 Trying to read from USB 4096 bytes
+15:43:21: DEBUG: CHANNEL DATA (176 bytes) <-- TARGET to HOST
+15:43:21: DEBUG: CharsInBuffer = 176
+15:43:21: DEBUG: printBuffer:5374 PRETTYPRINT Buffer is 176 bytes
+
+15:43:21: DEBUG: printBuffer:5451 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+15:43:21: DEBUG: printBuffer:5451 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+15:43:21: DEBUG: printBuffer:5451 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+15:43:21: DEBUG: printBuffer:5451 67 20 76 61 6C 75 65 3D 22 73 74 61 72 74 20 33 g value="start 3
+15:43:21: DEBUG: printBuffer:5451 32 30 2C 20 6E 75 6D 20 31 36 22 20 2F 3E 3C 2F 20, num 16" /></
+15:43:21: DEBUG: printBuffer:5451 64 61 74 61 3E 3C 3F 78 6D 6C 20 76 65 72 73 69 data><?xml versi
+15:43:21: DEBUG: printBuffer:5451 6F 6E 3D 22 31 2E 30 22 20 65 6E 63 6F 64 69 6E on="1.0" encodin
+15:43:21: DEBUG: printBuffer:5451 67 3D 22 55 54 46 2D 38 22 20 3F 3E 3C 64 61 74 g="UTF-8" ?><dat
+15:43:21: DEBUG: printBuffer:5451 61 3E 3C 72 65 73 70 6F 6E 73 65 20 76 61 6C 75 a><response valu
+15:43:21: DEBUG: printBuffer:5451 65 3D 22 41 43 4B 22 20 72 61 77 6D 6F 64 65 3D e="ACK" rawmode=
+15:43:21: DEBUG: printBuffer:5451 22 74 72 75 65 22 20 2F 3E 3C 2F 64 61 74 61 3E "true" /></data>
+15:43:21: DEBUG: printBuffer:5464 
+
+
+15:43:21: DEBUG: XML FILE (85 bytes): CharsInBuffer=176-85=91
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="start 320, num 16" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: INFO: TARGET SAID: 'start 320, num 16'
+15:43:21: DEBUG: XML FILE (91 bytes): CharsInBuffer=91-91=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" rawmode="true" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: DEBUG: Response was 'ACK'
+15:43:21: DEBUG: CHANNEL DATA (P0002) (H00204) (8.00 KB) - HOST TO TARGET -->
+15:43:21: INFO: FILE ACCESS SLOW!!    8.00 KB in  0.015 seconds ( 533.33 KBps) --- Overall to target  0.010 seconds (800.00 KBps)
+15:43:21: DEBUG: CharsInBuffer=0 Trying to read from USB 4096 bytes
+15:43:21: DEBUG: CHANNEL DATA (187 bytes) <-- TARGET to HOST
+15:43:21: DEBUG: CharsInBuffer = 187
+15:43:21: DEBUG: printBuffer:5374 PRETTYPRINT Buffer is 187 bytes
+
+15:43:21: DEBUG: printBuffer:5451 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+15:43:21: DEBUG: printBuffer:5451 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+15:43:21: DEBUG: printBuffer:5451 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+15:43:21: DEBUG: printBuffer:5451 67 20 76 61 6C 75 65 3D 22 46 69 6E 69 73 68 65 g value="Finishe
+15:43:21: DEBUG: printBuffer:5451 64 20 73 65 63 74 6F 72 20 61 64 64 72 65 73 73 d sector address
+15:43:21: DEBUG: printBuffer:5451 20 33 33 36 22 20 2F 3E 3C 2F 64 61 74 61 3E 3C  336" /></data><
+15:43:21: DEBUG: printBuffer:5451 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 2E ?xml version="1.
+15:43:21: DEBUG: printBuffer:5451 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 46 0" encoding="UTF
+15:43:21: DEBUG: printBuffer:5451 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 72 65 73 -8" ?><data><res
+15:43:21: DEBUG: printBuffer:5451 70 6F 6E 73 65 20 76 61 6C 75 65 3D 22 41 43 4B ponse value="ACK
+15:43:21: DEBUG: printBuffer:5451 22 20 72 61 77 6D 6F 64 65 3D 22 66 61 6C 73 65 " rawmode="false
+15:43:21: DEBUG: printBuffer:5451 22 20 2F 3E 3C 2F 64 61 74 61 3E                " /></data>
+15:43:21: DEBUG: printBuffer:5464 
+
+
+15:43:21: DEBUG: XML FILE (95 bytes): CharsInBuffer=187-95=92
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="Finished sector address 336" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: INFO: TARGET SAID: 'Finished sector address 336'
+15:43:21: DEBUG: XML FILE (92 bytes): CharsInBuffer=92-92=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" rawmode="false" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: DEBUG: Response was 'ACK'
+15:43:21: INFO: 
+15:43:21: INFO: =======================================================
+15:43:21: INFO: ==================== {SUCCESS} ========================
+15:43:21: INFO: =======================================================
+
+
+15:43:21: INFO: In handleProgram('persist.img')
+15:43:21: INFO: persist.img is a sparse image
+15:43:21: DEBUG: ==================================================================================
+15:43:21: DEBUG: ==================================================================================
+15:43:21: INFO: Looking for file 'persist.img'
+15:43:21: DEBUG: 1. Calling stat(D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img')
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img') with AccessMode='rb'
+15:43:21: DEBUG: Trying get filesize, calling fseek()
+15:43:21: DEBUG: Found 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img' (249956 bytes)
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img') with AccessMode='rb'
+15:43:21: DEBUG: File size is 24576 bytes
+15:43:21: DEBUG: NumSectors needed 48
+15:43:21: INFO: =======================================================
+15:43:21: INFO: {<program> FILE: 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img'}
+15:43:21: INFO: {<program> (24.00 KB) 48 sectors needed at location 262144 on LUN 0}
+15:43:21: INFO: =======================================================
+
+15:43:21: DEBUG: CHANNEL DATA (P0003) (H00205) (    262 bytes) - HOST TO TARGET -->
+===========================================================================================================
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+<program  filename="persist.img" SECTOR_SIZE_IN_BYTES="512" num_partition_sectors="48" physical_partition_number="0" start_sector="262144" file_sector_offset="28" sparse="true" UNSPARSE_FILE_SIZE="24576"  />
+</data>
+============================================================================================================
+
+15:43:21: DEBUG: CharsInBuffer=0 Trying to read from USB 4096 bytes
+15:43:21: DEBUG: CHANNEL DATA (179 bytes) <-- TARGET to HOST
+15:43:21: DEBUG: CharsInBuffer = 179
+15:43:21: DEBUG: printBuffer:5374 PRETTYPRINT Buffer is 179 bytes
+
+15:43:21: DEBUG: printBuffer:5451 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+15:43:21: DEBUG: printBuffer:5451 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+15:43:21: DEBUG: printBuffer:5451 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+15:43:21: DEBUG: printBuffer:5451 67 20 76 61 6C 75 65 3D 22 73 74 61 72 74 20 32 g value="start 2
+15:43:21: DEBUG: printBuffer:5451 36 32 31 34 34 2C 20 6E 75 6D 20 34 38 22 20 2F 62144, num 48" /
+15:43:21: DEBUG: printBuffer:5451 3E 3C 2F 64 61 74 61 3E 3C 3F 78 6D 6C 20 76 65 ></data><?xml ve
+15:43:21: DEBUG: printBuffer:5451 72 73 69 6F 6E 3D 22 31 2E 30 22 20 65 6E 63 6F rsion="1.0" enco
+15:43:21: DEBUG: printBuffer:5451 64 69 6E 67 3D 22 55 54 46 2D 38 22 20 3F 3E 3C ding="UTF-8" ?><
+15:43:21: DEBUG: printBuffer:5451 64 61 74 61 3E 3C 72 65 73 70 6F 6E 73 65 20 76 data><response v
+15:43:21: DEBUG: printBuffer:5451 61 6C 75 65 3D 22 41 43 4B 22 20 72 61 77 6D 6F alue="ACK" rawmo
+15:43:21: DEBUG: printBuffer:5451 64 65 3D 22 74 72 75 65 22 20 2F 3E 3C 2F 64 61 de="true" /></da
+15:43:21: DEBUG: printBuffer:5451 74 61 3E                                        ta>
+15:43:21: DEBUG: printBuffer:5464 
+
+
+15:43:21: DEBUG: XML FILE (88 bytes): CharsInBuffer=179-88=91
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="start 262144, num 48" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: INFO: TARGET SAID: 'start 262144, num 48'
+15:43:21: DEBUG: XML FILE (91 bytes): CharsInBuffer=91-91=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" rawmode="true" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: DEBUG: Response was 'ACK'
+15:43:21: DEBUG: CHANNEL DATA (P0004) (H00206) (24.00 KB) - HOST TO TARGET -->
+15:43:21: INFO: FILE ACCESS SLOW!!   24.00 KB in  0.015 seconds (   1.56 MBps) --- Overall to target  0.010 seconds (2.34 MBps)
+15:43:21: DEBUG: CharsInBuffer=0 Trying to read from USB 4096 bytes
+15:43:21: DEBUG: CHANNEL DATA (190 bytes) <-- TARGET to HOST
+15:43:21: DEBUG: CharsInBuffer = 190
+15:43:21: DEBUG: printBuffer:5374 PRETTYPRINT Buffer is 190 bytes
+
+15:43:21: DEBUG: printBuffer:5451 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+15:43:21: DEBUG: printBuffer:5451 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+15:43:21: DEBUG: printBuffer:5451 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+15:43:21: DEBUG: printBuffer:5451 67 20 76 61 6C 75 65 3D 22 46 69 6E 69 73 68 65 g value="Finishe
+15:43:21: DEBUG: printBuffer:5451 64 20 73 65 63 74 6F 72 20 61 64 64 72 65 73 73 d sector address
+15:43:21: DEBUG: printBuffer:5451 20 32 36 32 31 39 32 22 20 2F 3E 3C 2F 64 61 74  262192" /></dat
+15:43:21: DEBUG: printBuffer:5451 61 3E 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D a><?xml version=
+15:43:21: DEBUG: printBuffer:5451 22 31 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 "1.0" encoding="
+15:43:21: DEBUG: printBuffer:5451 55 54 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C UTF-8" ?><data><
+15:43:21: DEBUG: printBuffer:5451 72 65 73 70 6F 6E 73 65 20 76 61 6C 75 65 3D 22 response value="
+15:43:21: DEBUG: printBuffer:5451 41 43 4B 22 20 72 61 77 6D 6F 64 65 3D 22 66 61 ACK" rawmode="fa
+15:43:21: DEBUG: printBuffer:5451 6C 73 65 22 20 2F 3E 3C 2F 64 61 74 61 3E       lse" /></data>
+15:43:21: DEBUG: printBuffer:5464 
+
+
+15:43:21: DEBUG: XML FILE (98 bytes): CharsInBuffer=190-98=92
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="Finished sector address 262192" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: INFO: TARGET SAID: 'Finished sector address 262192'
+15:43:21: DEBUG: XML FILE (92 bytes): CharsInBuffer=92-92=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" rawmode="false" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: DEBUG: Response was 'ACK'
+15:43:21: INFO: 
+15:43:21: INFO: =======================================================
+15:43:21: INFO: ==================== {SUCCESS} ========================
+15:43:21: INFO: =======================================================
+
+
+15:43:21: INFO: In handleProgram('persist.img')
+15:43:21: INFO: persist.img is a sparse image
+15:43:21: DEBUG: ==================================================================================
+15:43:21: DEBUG: ==================================================================================
+15:43:21: INFO: Looking for file 'persist.img'
+15:43:21: DEBUG: 1. Calling stat(D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img')
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img') with AccessMode='rb'
+15:43:21: DEBUG: Trying get filesize, calling fseek()
+15:43:21: DEBUG: Found 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img' (249956 bytes)
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img') with AccessMode='rb'
+15:43:21: DEBUG: File size is 28672 bytes
+15:43:21: DEBUG: NumSectors needed 56
+15:43:21: INFO: =======================================================
+15:43:21: INFO: {<program> FILE: 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img'}
+15:43:21: INFO: {<program> (28.00 KB) 56 sectors needed at location 264232 on LUN 0}
+15:43:21: INFO: =======================================================
+
+15:43:21: DEBUG: CHANNEL DATA (P0005) (H00207) (    265 bytes) - HOST TO TARGET -->
+===========================================================================================================
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+<program  filename="persist.img" SECTOR_SIZE_IN_BYTES="512" num_partition_sectors="56" physical_partition_number="0" start_sector="264232" file_sector_offset="24628" sparse="true" UNSPARSE_FILE_SIZE="28672"  />
+</data>
+============================================================================================================
+
+15:43:21: DEBUG: CharsInBuffer=0 Trying to read from USB 4096 bytes
+15:43:21: DEBUG: CHANNEL DATA (179 bytes) <-- TARGET to HOST
+15:43:21: DEBUG: CharsInBuffer = 179
+15:43:21: DEBUG: printBuffer:5374 PRETTYPRINT Buffer is 179 bytes
+
+15:43:21: DEBUG: printBuffer:5451 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+15:43:21: DEBUG: printBuffer:5451 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+15:43:21: DEBUG: printBuffer:5451 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+15:43:21: DEBUG: printBuffer:5451 67 20 76 61 6C 75 65 3D 22 73 74 61 72 74 20 32 g value="start 2
+15:43:21: DEBUG: printBuffer:5451 36 34 32 33 32 2C 20 6E 75 6D 20 35 36 22 20 2F 64232, num 56" /
+15:43:21: DEBUG: printBuffer:5451 3E 3C 2F 64 61 74 61 3E 3C 3F 78 6D 6C 20 76 65 ></data><?xml ve
+15:43:21: DEBUG: printBuffer:5451 72 73 69 6F 6E 3D 22 31 2E 30 22 20 65 6E 63 6F rsion="1.0" enco
+15:43:21: DEBUG: printBuffer:5451 64 69 6E 67 3D 22 55 54 46 2D 38 22 20 3F 3E 3C ding="UTF-8" ?><
+15:43:21: DEBUG: printBuffer:5451 64 61 74 61 3E 3C 72 65 73 70 6F 6E 73 65 20 76 data><response v
+15:43:21: DEBUG: printBuffer:5451 61 6C 75 65 3D 22 41 43 4B 22 20 72 61 77 6D 6F alue="ACK" rawmo
+15:43:21: DEBUG: printBuffer:5451 64 65 3D 22 74 72 75 65 22 20 2F 3E 3C 2F 64 61 de="true" /></da
+15:43:21: DEBUG: printBuffer:5451 74 61 3E                                        ta>
+15:43:21: DEBUG: printBuffer:5464 
+
+
+15:43:21: DEBUG: XML FILE (88 bytes): CharsInBuffer=179-88=91
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="start 264232, num 56" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: INFO: TARGET SAID: 'start 264232, num 56'
+15:43:21: DEBUG: XML FILE (91 bytes): CharsInBuffer=91-91=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" rawmode="true" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: DEBUG: Response was 'ACK'
+15:43:21: DEBUG: CHANNEL DATA (P0006) (H00208) (28.00 KB) - HOST TO TARGET -->
+15:43:21: INFO: FILE ACCESS SLOW!!   28.00 KB in  0.015 seconds (   1.82 MBps) --- Overall to target  0.010 seconds (2.73 MBps)
+15:43:21: DEBUG: CharsInBuffer=0 Trying to read from USB 4096 bytes
+15:43:21: DEBUG: CHANNEL DATA (190 bytes) <-- TARGET to HOST
+15:43:21: DEBUG: CharsInBuffer = 190
+15:43:21: DEBUG: printBuffer:5374 PRETTYPRINT Buffer is 190 bytes
+
+15:43:21: DEBUG: printBuffer:5451 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+15:43:21: DEBUG: printBuffer:5451 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+15:43:21: DEBUG: printBuffer:5451 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+15:43:21: DEBUG: printBuffer:5451 67 20 76 61 6C 75 65 3D 22 46 69 6E 69 73 68 65 g value="Finishe
+15:43:21: DEBUG: printBuffer:5451 64 20 73 65 63 74 6F 72 20 61 64 64 72 65 73 73 d sector address
+15:43:21: DEBUG: printBuffer:5451 20 32 36 34 32 38 38 22 20 2F 3E 3C 2F 64 61 74  264288" /></dat
+15:43:21: DEBUG: printBuffer:5451 61 3E 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D a><?xml version=
+15:43:21: DEBUG: printBuffer:5451 22 31 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 "1.0" encoding="
+15:43:21: DEBUG: printBuffer:5451 55 54 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C UTF-8" ?><data><
+15:43:21: DEBUG: printBuffer:5451 72 65 73 70 6F 6E 73 65 20 76 61 6C 75 65 3D 22 response value="
+15:43:21: DEBUG: printBuffer:5451 41 43 4B 22 20 72 61 77 6D 6F 64 65 3D 22 66 61 ACK" rawmode="fa
+15:43:21: DEBUG: printBuffer:5451 6C 73 65 22 20 2F 3E 3C 2F 64 61 74 61 3E       lse" /></data>
+15:43:21: DEBUG: printBuffer:5464 
+
+
+15:43:21: DEBUG: XML FILE (98 bytes): CharsInBuffer=190-98=92
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="Finished sector address 264288" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: INFO: TARGET SAID: 'Finished sector address 264288'
+15:43:21: DEBUG: XML FILE (92 bytes): CharsInBuffer=92-92=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" rawmode="false" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: DEBUG: Response was 'ACK'
+15:43:21: INFO: 
+15:43:21: INFO: =======================================================
+15:43:21: INFO: ==================== {SUCCESS} ========================
+15:43:21: INFO: =======================================================
+
+
+15:43:21: INFO: In handleProgram('persist.img')
+15:43:21: INFO: persist.img is a sparse image
+15:43:21: DEBUG: ==================================================================================
+15:43:21: DEBUG: ==================================================================================
+15:43:21: INFO: Looking for file 'persist.img'
+15:43:21: DEBUG: 1. Calling stat(D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img')
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img') with AccessMode='rb'
+15:43:21: DEBUG: Trying get filesize, calling fseek()
+15:43:21: DEBUG: Found 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img' (249956 bytes)
+15:43:21: DEBUG: 2. Calling fopen('D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img') with AccessMode='rb'
+15:43:21: DEBUG: File size is 196608 bytes
+15:43:21: DEBUG: NumSectors needed 384
+15:43:21: INFO: =======================================================
+15:43:21: INFO: {<program> FILE: 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img'}
+15:43:21: INFO: {<program> (192.00 KB) 384 sectors needed at location 272472 on LUN 0}
+15:43:21: INFO: =======================================================
+
+15:43:21: DEBUG: CHANNEL DATA (P0007) (H00209) (    267 bytes) - HOST TO TARGET -->
+===========================================================================================================
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+<program  filename="persist.img" SECTOR_SIZE_IN_BYTES="512" num_partition_sectors="384" physical_partition_number="0" start_sector="272472" file_sector_offset="53324" sparse="true" UNSPARSE_FILE_SIZE="196608"  />
+</data>
+============================================================================================================
+
+15:43:21: DEBUG: CharsInBuffer=0 Trying to read from USB 4096 bytes
+15:43:21: DEBUG: CHANNEL DATA (180 bytes) <-- TARGET to HOST
+15:43:21: DEBUG: CharsInBuffer = 180
+15:43:21: DEBUG: printBuffer:5374 PRETTYPRINT Buffer is 180 bytes
+
+15:43:21: DEBUG: printBuffer:5451 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+15:43:21: DEBUG: printBuffer:5451 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+15:43:21: DEBUG: printBuffer:5451 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+15:43:21: DEBUG: printBuffer:5451 67 20 76 61 6C 75 65 3D 22 73 74 61 72 74 20 32 g value="start 2
+15:43:21: DEBUG: printBuffer:5451 37 32 34 37 32 2C 20 6E 75 6D 20 33 38 34 22 20 72472, num 384" 
+15:43:21: DEBUG: printBuffer:5451 2F 3E 3C 2F 64 61 74 61 3E 3C 3F 78 6D 6C 20 76 /></data><?xml v
+15:43:21: DEBUG: printBuffer:5451 65 72 73 69 6F 6E 3D 22 31 2E 30 22 20 65 6E 63 ersion="1.0" enc
+15:43:21: DEBUG: printBuffer:5451 6F 64 69 6E 67 3D 22 55 54 46 2D 38 22 20 3F 3E oding="UTF-8" ?>
+15:43:21: DEBUG: printBuffer:5451 3C 64 61 74 61 3E 3C 72 65 73 70 6F 6E 73 65 20 <data><response 
+15:43:21: DEBUG: printBuffer:5451 76 61 6C 75 65 3D 22 41 43 4B 22 20 72 61 77 6D value="ACK" rawm
+15:43:21: DEBUG: printBuffer:5451 6F 64 65 3D 22 74 72 75 65 22 20 2F 3E 3C 2F 64 ode="true" /></d
+15:43:21: DEBUG: printBuffer:5451 61 74 61 3E                                     ata>
+15:43:21: DEBUG: printBuffer:5464 
+
+
+15:43:21: DEBUG: XML FILE (89 bytes): CharsInBuffer=180-89=91
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="start 272472, num 384" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: INFO: TARGET SAID: 'start 272472, num 384'
+15:43:21: DEBUG: XML FILE (91 bytes): CharsInBuffer=91-91=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" rawmode="true" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: DEBUG: Response was 'ACK'
+15:43:21: DEBUG: CHANNEL DATA (P0008) (H00210) (192.00 KB) - HOST TO TARGET -->
+15:43:21: INFO: FILE ACCESS SLOW!!  192.00 KB in  0.015 seconds (  12.50 MBps) --- Overall to target  0.010 seconds (18.75 MBps)
+15:43:21: DEBUG: CharsInBuffer=0 Trying to read from USB 4096 bytes
+15:43:21: DEBUG: CHANNEL DATA (190 bytes) <-- TARGET to HOST
+15:43:21: DEBUG: CharsInBuffer = 190
+15:43:21: DEBUG: printBuffer:5374 PRETTYPRINT Buffer is 190 bytes
+
+15:43:21: DEBUG: printBuffer:5451 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+15:43:21: DEBUG: printBuffer:5451 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+15:43:21: DEBUG: printBuffer:5451 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+15:43:21: DEBUG: printBuffer:5451 67 20 76 61 6C 75 65 3D 22 46 69 6E 69 73 68 65 g value="Finishe
+15:43:21: DEBUG: printBuffer:5451 64 20 73 65 63 74 6F 72 20 61 64 64 72 65 73 73 d sector address
+15:43:21: DEBUG: printBuffer:5451 20 32 37 32 38 35 36 22 20 2F 3E 3C 2F 64 61 74  272856" /></dat
+15:43:21: DEBUG: printBuffer:5451 61 3E 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D a><?xml version=
+15:43:21: DEBUG: printBuffer:5451 22 31 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 "1.0" encoding="
+15:43:21: DEBUG: printBuffer:5451 55 54 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C UTF-8" ?><data><
+15:43:21: DEBUG: printBuffer:5451 72 65 73 70 6F 6E 73 65 20 76 61 6C 75 65 3D 22 response value="
+15:43:21: DEBUG: printBuffer:5451 41 43 4B 22 20 72 61 77 6D 6F 64 65 3D 22 66 61 ACK" rawmode="fa
+15:43:21: DEBUG: printBuffer:5451 6C 73 65 22 20 2F 3E 3C 2F 64 61 74 61 3E       lse" /></data>
+15:43:21: DEBUG: printBuffer:5464 
+
+
+15:43:21: DEBUG: XML FILE (98 bytes): CharsInBuffer=190-98=92
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="Finished sector address 272856" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: INFO: TARGET SAID: 'Finished sector address 272856'
+15:43:21: DEBUG: XML FILE (92 bytes): CharsInBuffer=92-92=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" rawmode="false" /></data>
+-------------------------------------------------------------------------------------------
+
+15:43:21: DEBUG: Response was 'ACK'
+15:43:21: INFO: 
+15:43:21: INFO: =======================================================
+15:43:21: INFO: ==================== {SUCCESS} ========================
+15:43:21: INFO: =======================================================
+
+
+15:43:21: INFO: ==============================================================
+15:43:21: INFO: Files used and their paths
+15:43:21: INFO:   1 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\port_trace.txt'
+15:43:21: INFO:   2 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\rawprogram0.xml'
+15:43:21: INFO:   3 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\persist.img'
+15:43:21: INFO:   4 'D:\All_Dll\MKtool_latest_pj_17_8_2019\MKtool_new\MKtool\bin\Debug\data\acc\Redmi6_Pro\dummy.img'
+15:43:21: INFO:      _             (done)
+15:43:21: INFO:     | |                 
+15:43:21: INFO:   __| | ___  _ __   ___ 
+15:43:21: INFO:  / _` |/ _ \| '_ \ / _ \
+15:43:21: INFO: | (_| | (_) | | | |  __/
+15:43:21: INFO:  \__,_|\___/|_| |_|\___|
+15:43:21: INFO: {All Finished Successfully}
+
+15:43:21: INFO: FILE ACCESS SLOW!!  252.00 KB in  0.015 seconds (  16.41 MBps) --- Overall to target  0.547 seconds (460.69 KBps)

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="windows-874" standalone="yes"?>
+<MikoForce>
+  <program   label="nvdata"   fix="erase"/>
+  <program   label="nvram"   fix="erase"/>
+  <program   label="nvcfg"   fix="erase"/>
+  <program   label="metadata"   fix="erase"/>
+</MikoForce>

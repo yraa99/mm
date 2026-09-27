@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="windows-874" standalone="yes"?>
+<MikoForce>
+  <program   label="modemst1"   fix="erase" />
+  <program   label="modemst2"   fix="erase" />
+  <program   label="modemst2"   fix="erase" />
+</MikoForce>

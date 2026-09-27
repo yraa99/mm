@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-874" standalone="yes"?>
+<MikoForce>
+  <program   label="config"  fix=""/>
+  <program   label="fsg"   fix=""/>
+  <program   label="modem"   fix="" />
+  <program   label="modemst1"  fix=""/>
+  <program   label="modemst2"  fix="" />
+  <program   label="oppodycnvbk"   fix=""/>
+  <program   label="opporesereve2"   fix="" />
+  <program   label="oppostanvbk"   fix=""/>
+  <program   label="nvdata"   fix=""/>
+  <program   label="nvram"   fix=""/>
+   <program   label="proinfo"   fix=""/>
+   <program   label="apnhlos"   fix=""/>
+   <program   label="efs"   fix=""/>
+   <program   label="persist"   fix=""/>
+	<program   label="persistent"   fix=""/>
+	<program   label="cpefs"   fix=""/>
+	<program   label="m9kefs1"   fix=""/>
+   <program   label="m9kefs2"   fix=""/>
+	<program   label="m9kefs3"   fix=""/>
+	<program   label="radio"   fix=""/>
+	<program   label="sec_efs"   fix=""/>
+	<program   label="oeminfo"   fix=""/>
+	<program   label="oem"   fix=""/>
+  <program   label="nvcfg"   fix=""/>
+ <program   label="metadata"   fix=""/>
+</MikoForce>

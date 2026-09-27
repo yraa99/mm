@@ -1,0 +1,652 @@
+[+] Primary GPT header
+ [-] Signature: EFI PART
+ [-] Revision: 65536
+ [-] Header Size: 92
+ [-] CRC32 of header: FD4B0BDD (VALID) => Real: FD4B0BDD
+ [-] Current LBA: 0x00000001
+ [-] Backup LBA: 0x03A3DFFF
+ [-] First usable LBA for partitions: 0x00000022
+ [-] Last usable LBA for partitions: 0x03A3DFDE
+ [-] Disk GUID: 98101B32-BBE2-4BF2-A06E-2BB33D000C20
+ [-] Partition entries starting LBA: 0x00000002
+ [-] Number of partition entries: 60
+ [-] Size of partition entry: 0x00000080
+ [-] CRC32 of partition array: 0x755F8A4F
+
+[+] Primary GPT header md5: fa10bf0f7ffb3be6c2d042bfa6eb2ecc
+
+
+[+] Partition table
+ [-] WARNING!! CRC32 Check : 9998C43F (INVALID)
+
+ [-] Partition 1
+  [-] Partition type GUID: 57B90A16-22C9-E33B-8F5D-0E81686A68CB
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: CF673E23-3B32-960D-427A-DB43687402B0
+  [-] First LBA: 40
+      => Disk Offset: 0x00005000
+  [-] Last LBA: 55
+      => Disk Offset: 0x00006E00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: fsc
+
+ [-] Partition 2
+  [-] Partition type GUID: 2C86E742-745E-4FDD-BFD8-B6A7AC638772
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 8359F34D-0EB0-AB30-AD16-D9EEB68F794D
+  [-] First LBA: 56
+      => Disk Offset: 0x00007000
+  [-] Last LBA: 71
+      => Disk Offset: 0x00008E00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: ssd
+
+ [-] Partition 3
+  [-] Partition type GUID: 11406F35-1173-4869-807B-27DF71802812
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 95ADDD6E-4FD1-3859-ACE4-7C4F85FDE319
+  [-] First LBA: 72
+      => Disk Offset: 0x00009000
+  [-] Last LBA: 87
+      => Disk Offset: 0x0000AE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: dpo
+
+ [-] Partition 4
+  [-] Partition type GUID: 303E6AC3-AF15-4C54-9E9B-D9A8FBECF401
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: A55AD6E1-0C90-E92D-598B-B40762D52CDE
+  [-] First LBA: 88
+      => Disk Offset: 0x0000B000
+  [-] Last LBA: 119
+      => Disk Offset: 0x0000EE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: sec
+
+ [-] Partition 5
+  [-] Partition type GUID: 0FC63DAF-8483-4772-8E79-3D69D8477DE4
+      => Partition type: Linux filesystem data, Linux
+  [-] Unique partition GUID: 048BA8FC-DE40-EA09-3D18-E36C311C0436
+  [-] First LBA: 120
+      => Disk Offset: 0x0000F000
+  [-] Last LBA: 151
+      => Disk Offset: 0x00012E00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: bk1
+
+ [-] Partition 6
+  [-] Partition type GUID: 0FC63DAF-8483-4772-8E79-3D69D8477DE4
+      => Partition type: Linux filesystem data, Linux
+  [-] Unique partition GUID: BE445E0C-5409-1650-00E1-3B8D58762D52
+  [-] First LBA: 152
+      => Disk Offset: 0x00013000
+  [-] Last LBA: 191
+      => Disk Offset: 0x00017E00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: bk2
+
+ [-] Partition 7
+  [-] Partition type GUID: 20A0C19C-286A-42FA-9CE7-F64C3226A794
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 2E289476-8EBB-BFB1-C562-1D23128D8F2A
+  [-] First LBA: 192
+      => Disk Offset: 0x00018000
+  [-] Last LBA: 255
+      => Disk Offset: 0x0001FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: DDR
+
+ [-] Partition 8
+  [-] Partition type GUID: 10A0C19C-516A-5444-5CE3-664C3226A794
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 3C70B589-1FC0-DA23-85F8-2ACC34D8AEC7
+  [-] First LBA: 256
+      => Disk Offset: 0x00020000
+  [-] Last LBA: 319
+      => Disk Offset: 0x00027E00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: limits
+
+ [-] Partition 9
+  [-] Partition type GUID: 91B72D4D-71E0-4CBF-9B8E-236381CFF17A
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: E0426E12-303C-D359-2B23-7C6916F8AF63
+  [-] First LBA: 320
+      => Disk Offset: 0x00028000
+  [-] Last LBA: 383
+      => Disk Offset: 0x0002FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: config
+
+ [-] Partition 10
+  [-] Partition type GUID: 0FC63DAF-8483-4772-8E79-3D69D8477DE4
+      => Partition type: Linux filesystem data, Linux
+  [-] Unique partition GUID: 84426A72-773D-FED3-7967-B29EAA994532
+  [-] First LBA: 384
+      => Disk Offset: 0x00030000
+  [-] Last LBA: 511
+      => Disk Offset: 0x0003FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: bk3
+
+ [-] Partition 11
+  [-] Partition type GUID: A11D2A7C-D82A-4C2F-8A01-1805240E6626
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 206CF86D-D12E-9E64-E3CA-53CDA89C53A6
+  [-] First LBA: 512
+      => Disk Offset: 0x00040000
+  [-] Last LBA: 767
+      => Disk Offset: 0x0005FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: lksecapp
+
+ [-] Partition 12
+  [-] Partition type GUID: A11D2A7C-D82A-4C2F-8A01-1805240E6626
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 63DB4D89-29DD-24DC-A888-8001C86FCBAA
+  [-] First LBA: 768
+      => Disk Offset: 0x00060000
+  [-] Last LBA: 1023
+      => Disk Offset: 0x0007FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: lksecappbak
+
+ [-] Partition 13
+  [-] Partition type GUID: F65D4B16-343D-4E25-AAFC-BE99B6556A6D
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: EDD02D3C-18F7-3EAE-5B98-64809C1E83F6
+  [-] First LBA: 1024
+      => Disk Offset: 0x00080000
+  [-] Last LBA: 1535
+      => Disk Offset: 0x000BFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: devcfg
+
+ [-] Partition 14
+  [-] Partition type GUID: F65D4B16-343D-4E25-AAFC-BE99B6556A6D
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 465FBA94-D356-3ED8-A850-3FD623D81226
+  [-] First LBA: 1536
+      => Disk Offset: 0x000C0000
+  [-] Last LBA: 2047
+      => Disk Offset: 0x000FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: devcfgbak
+
+ [-] Partition 15
+  [-] Partition type GUID: E6E98DA2-E22A-4D12-AB33-169E7DEAA507
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 43497498-8C78-C01F-A23D-4D13149249B8
+  [-] First LBA: 2048
+      => Disk Offset: 0x00100000
+  [-] Last LBA: 2559
+      => Disk Offset: 0x0013FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: apdp
+
+ [-] Partition 16
+  [-] Partition type GUID: ED9E8101-05FA-46B7-82AA-8D58770D200B
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: FE563819-4159-44A8-7A50-993B5AAAA1C8
+  [-] First LBA: 2560
+      => Disk Offset: 0x00140000
+  [-] Last LBA: 3071
+      => Disk Offset: 0x0017FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: msadp
+
+ [-] Partition 17
+  [-] Partition type GUID: DEA0BA2C-CBDD-4805-B4F9-F428251C3E98
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 29037FBE-80BE-D83A-65F3-A68B5BBE6635
+  [-] First LBA: 3072
+      => Disk Offset: 0x00180000
+  [-] Last LBA: 4095
+      => Disk Offset: 0x001FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: sbl1
+
+ [-] Partition 18
+  [-] Partition type GUID: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7
+      => Partition type: Basic data partition / Linux filesystem data, Windows / Linux
+  [-] Unique partition GUID: 4B633373-948E-ABB0-C268-2ABB59804F7D
+  [-] First LBA: 4096
+      => Disk Offset: 0x00200000
+  [-] Last LBA: 5119
+      => Disk Offset: 0x0027FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: sbl1bak
+
+ [-] Partition 19
+  [-] Partition type GUID: 098DF793-D712-413D-9D4E-89D711772228
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 13078C90-099C-7430-8505-F7AC1D0C033C
+  [-] First LBA: 5120
+      => Disk Offset: 0x00280000
+  [-] Last LBA: 6143
+      => Disk Offset: 0x002FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: rpm
+
+ [-] Partition 20
+  [-] Partition type GUID: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7
+      => Partition type: Basic data partition / Linux filesystem data, Windows / Linux
+  [-] Unique partition GUID: C06E39EE-36FE-BE36-1CB8-966CC4D2238B
+  [-] First LBA: 6144
+      => Disk Offset: 0x00300000
+  [-] Last LBA: 7167
+      => Disk Offset: 0x0037FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: rpmbak
+
+ [-] Partition 21
+  [-] Partition type GUID: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7
+      => Partition type: Basic data partition / Linux filesystem data, Windows / Linux
+  [-] Unique partition GUID: A0D9049F-F4C6-25BE-D90F-234898547D2E
+  [-] First LBA: 7168
+      => Disk Offset: 0x00380000
+  [-] Last LBA: 8191
+      => Disk Offset: 0x003FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: mota
+
+ [-] Partition 22
+  [-] Partition type GUID: DE7D4029-0F5B-41C8-AE7E-F6C023A02B33
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: D9235486-2BF3-E9F2-09FF-427ECC826306
+  [-] First LBA: 8192
+      => Disk Offset: 0x00400000
+  [-] Last LBA: 9215
+      => Disk Offset: 0x0047FE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: keystore
+
+ [-] Partition 23
+  [-] Partition type GUID: 098DF793-D712-413D-9D4E-89D711772228
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 376C4171-322C-C3C2-50A5-C0A117B547F1
+  [-] First LBA: 9216
+      => Disk Offset: 0x00480000
+  [-] Last LBA: 10239
+      => Disk Offset: 0x004FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: syscfg
+
+ [-] Partition 24
+  [-] Partition type GUID: 73471795-AB54-43F9-A847-4F72EA5CBEF5
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 6EC065D5-9DF6-15A8-7F41-175054DCE944
+  [-] First LBA: 10240
+      => Disk Offset: 0x00500000
+  [-] Last LBA: 12287
+      => Disk Offset: 0x005FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: cmnlib
+
+ [-] Partition 25
+  [-] Partition type GUID: 73471795-AB54-43F9-A847-4F72EA5CBEF5
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 22511E80-B94B-EF76-1A91-B1B368002A1A
+  [-] First LBA: 12288
+      => Disk Offset: 0x00600000
+  [-] Last LBA: 14335
+      => Disk Offset: 0x006FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: cmnlibbak
+
+ [-] Partition 26
+  [-] Partition type GUID: 8EA64893-1267-4A1B-947C-7C362ACAAD2C
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: DA7ABF40-3355-B35F-C363-71A34BD99A82
+  [-] First LBA: 14336
+      => Disk Offset: 0x00700000
+  [-] Last LBA: 16383
+      => Disk Offset: 0x007FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: cmnlib64
+
+ [-] Partition 27
+  [-] Partition type GUID: 8EA64893-1267-4A1B-947C-7C362ACAAD2C
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 97E68805-97FE-4239-746A-F62DAE457D83
+  [-] First LBA: 16384
+      => Disk Offset: 0x00800000
+  [-] Last LBA: 18431
+      => Disk Offset: 0x008FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: cmnlib64bak
+
+ [-] Partition 28
+  [-] Partition type GUID: E8B7CF6E-5694-4627-8A2A-899B09F2DBEA
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: FB4D79A4-6D59-9B0E-BF95-253222B1C4AA
+  [-] First LBA: 18432
+      => Disk Offset: 0x00900000
+  [-] Last LBA: 20479
+      => Disk Offset: 0x009FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: keymaster
+
+ [-] Partition 29
+  [-] Partition type GUID: E8B7CF6E-5694-4627-8A2A-899B09F2DBEA
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 0F6503AE-9305-CEE3-0AD1-F03851312F2C
+  [-] First LBA: 20480
+      => Disk Offset: 0x00A00000
+  [-] Last LBA: 22527
+      => Disk Offset: 0x00AFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: keymasterbak
+
+ [-] Partition 30
+  [-] Partition type GUID: 82ACC91F-357C-4A68-9C8F-689E1B1A23A1
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 6C8EDD1A-30A2-F651-614B-059B97ABE13F
+  [-] First LBA: 22528
+      => Disk Offset: 0x00B00000
+  [-] Last LBA: 24575
+      => Disk Offset: 0x00BFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: misc
+
+ [-] Partition 31
+  [-] Partition type GUID: 400FFDCD-22E0-47E7-9A23-F16ED9382388
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 9701C4F4-A834-4A1C-F3F1-675AE8FB77CD
+  [-] First LBA: 24576
+      => Disk Offset: 0x00C00000
+  [-] Last LBA: 26623
+      => Disk Offset: 0x00CFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: aboot
+
+ [-] Partition 32
+  [-] Partition type GUID: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7
+      => Partition type: Basic data partition / Linux filesystem data, Windows / Linux
+  [-] Unique partition GUID: D5454CAD-5D80-CB03-C026-9434171D713D
+  [-] First LBA: 26624
+      => Disk Offset: 0x00D00000
+  [-] Last LBA: 28671
+      => Disk Offset: 0x00DFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: abootbak
+
+ [-] Partition 33
+  [-] Partition type GUID: 4114B077-005D-4E12-AC8C-B493BDA684FB
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 88D286BE-9067-DFC9-1208-BFEBB5245BCA
+  [-] First LBA: 28672
+      => Disk Offset: 0x00E00000
+  [-] Last LBA: 30719
+      => Disk Offset: 0x00EFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: dip
+
+ [-] Partition 34
+  [-] Partition type GUID: 0FC63DAF-8483-4772-8E79-3D69D8477DE4
+      => Partition type: Linux filesystem data, Linux
+  [-] Unique partition GUID: 956D6437-C5C0-E74A-102C-CED17CB3F54E
+  [-] First LBA: 30720
+      => Disk Offset: 0x00F00000
+  [-] Last LBA: 32767
+      => Disk Offset: 0x00FFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: bk4
+
+ [-] Partition 35
+  [-] Partition type GUID: A053AA7F-40B8-4B1C-BA08-2F68AC71A4F4
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 6549379D-50F5-A1B1-802C-39137DC1CA4B
+  [-] First LBA: 32768
+      => Disk Offset: 0x01000000
+  [-] Last LBA: 36863
+      => Disk Offset: 0x011FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: tz
+
+ [-] Partition 36
+  [-] Partition type GUID: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7
+      => Partition type: Basic data partition / Linux filesystem data, Windows / Linux
+  [-] Unique partition GUID: 34B7619F-1F6C-A91E-E701-F77FE7D4777B
+  [-] First LBA: 36864
+      => Disk Offset: 0x01200000
+  [-] Last LBA: 40959
+      => Disk Offset: 0x013FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: tzbak
+
+ [-] Partition 37
+  [-] Partition type GUID: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7
+      => Partition type: Basic data partition / Linux filesystem data, Windows / Linux
+  [-] Unique partition GUID: 85CE2755-28C7-975B-A3E7-008CB6137423
+  [-] First LBA: 40960
+      => Disk Offset: 0x01400000
+  [-] Last LBA: 49151
+      => Disk Offset: 0x017FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: mcfg
+
+ [-] Partition 38
+  [-] Partition type GUID: 1B81E7E6-F50D-419B-A739-2AEEF8DA3335
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 48FEA02B-6FFB-538A-0314-290C46345D5A
+  [-] First LBA: 49152
+      => Disk Offset: 0x01800000
+  [-] Last LBA: 65535
+      => Disk Offset: 0x01FFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: devinfo
+
+ [-] Partition 39
+  [-] Partition type GUID: 638FF8E2-22C9-E33B-8F5D-0E81686A68CB
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: A2BABCDC-DE2F-23C4-E24C-03156412E19C
+  [-] First LBA: 65536
+      => Disk Offset: 0x02000000
+  [-] Last LBA: 81919
+      => Disk Offset: 0x027FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: fsg
+
+ [-] Partition 40
+  [-] Partition type GUID: EBBEADAF-22C9-E33B-8F5D-0E81686A68CB
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 713E1D2C-7440-88C0-F1FC-4A927760460C
+  [-] First LBA: 81920
+      => Disk Offset: 0x02800000
+  [-] Last LBA: 98303
+      => Disk Offset: 0x02FFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: modemst1
+
+ [-] Partition 41
+  [-] Partition type GUID: 0A288B1F-22C9-E33B-8F5D-0E81686A68CB
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: AE8B6469-E145-E9F0-2CB8-C9EC7DA6BD6C
+  [-] First LBA: 98304
+      => Disk Offset: 0x03000000
+  [-] Last LBA: 114687
+      => Disk Offset: 0x037FFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: modemst2
+
+ [-] Partition 42
+  [-] Partition type GUID: 0FC63DAF-8483-4772-8E79-3D69D8477DE4
+      => Partition type: Linux filesystem data, Linux
+  [-] Unique partition GUID: CA058A9D-EDC4-6225-9030-C1B8B26F3FBD
+  [-] First LBA: 114688
+      => Disk Offset: 0x03800000
+  [-] Last LBA: 131071
+      => Disk Offset: 0x03FFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: bk5
+
+ [-] Partition 43
+  [-] Partition type GUID: 20117F86-E985-4357-B9EE-374BC1D8487D
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: C3F0781D-7471-E513-122E-848CDFF3D11A
+  [-] First LBA: 131072
+      => Disk Offset: 0x04000000
+  [-] Last LBA: 163839
+      => Disk Offset: 0x04FFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: splash
+
+ [-] Partition 44
+  [-] Partition type GUID: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7
+      => Partition type: Basic data partition / Linux filesystem data, Windows / Linux
+  [-] Unique partition GUID: 664D1B9E-C032-F815-7CCC-BA86924DDB05
+  [-] First LBA: 163840
+      => Disk Offset: 0x05000000
+  [-] Last LBA: 196607
+      => Disk Offset: 0x05FFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: dsp
+
+ [-] Partition 45
+  [-] Partition type GUID: 3878408A-E263-4B67-B878-6340B35B11E3
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 9A0D1EC8-C964-A79B-4A1F-B177FB076647
+  [-] First LBA: 196608
+      => Disk Offset: 0x06000000
+  [-] Last LBA: 262143
+      => Disk Offset: 0x07FFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: mdtp
+
+ [-] Partition 46
+  [-] Partition type GUID: 6C95E238-E343-4BA8-B489-8681ED22AD0B
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: CBCD7F7A-162C-7284-A94E-2A649D77679A
+  [-] First LBA: 262144
+      => Disk Offset: 0x08000000
+  [-] Last LBA: 327679
+      => Disk Offset: 0x09FFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: persist
+
+ [-] Partition 47
+  [-] Partition type GUID: 6C95E238-E343-4BA8-B489-8681ED22AD0B
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 85D7931A-C7D9-48AC-C08D-EADF28CA445F
+  [-] First LBA: 327680
+      => Disk Offset: 0x0A000000
+  [-] Last LBA: 393215
+      => Disk Offset: 0x0BFFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: persistbak
+
+ [-] Partition 48
+  [-] Partition type GUID: 20117F86-E985-4357-B9EE-374BC1D8487D
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: D64389DB-ACD0-8AC9-6B5C-631FA5FF42B4
+  [-] First LBA: 393216
+      => Disk Offset: 0x0C000000
+  [-] Last LBA: 524287
+      => Disk Offset: 0x0FFFFE00
+  [-] Attribute flags: 1152921504606846976, UNKNOWN
+  [-] Partition Name: boot
+
+ [-] Partition 49
+  [-] Partition type GUID: 9D72D4E4-9958-42DA-AC26-BEA7A90B0434
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 04E48DA4-5D05-48C4-B0D5-7FCE6243BC56
+  [-] First LBA: 524288
+      => Disk Offset: 0x10000000
+  [-] Last LBA: 655359
+      => Disk Offset: 0x13FFFE00
+  [-] Attribute flags: 1152921504606846976, UNKNOWN
+  [-] Partition Name: recovery
+
+ [-] Partition 50
+  [-] Partition type GUID: 5AF80809-AABB-4943-9168-CDFC38742598
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: A1B27A53-9258-7C7E-FE35-EC7C86163A53
+  [-] First LBA: 655360
+      => Disk Offset: 0x14000000
+  [-] Last LBA: 786431
+      => Disk Offset: 0x17FFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: logdump
+
+ [-] Partition 51
+  [-] Partition type GUID: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7
+      => Partition type: Basic data partition / Linux filesystem data, Windows / Linux
+  [-] Unique partition GUID: 88919EDF-081E-B3EB-BA17-F15E04EF7F9F
+  [-] First LBA: 786432
+      => Disk Offset: 0x18000000
+  [-] Last LBA: 1048575
+      => Disk Offset: 0x1FFFFE00
+  [-] Attribute flags: 1152921504606846976, UNKNOWN
+  [-] Partition Name: modem
+
+ [-] Partition 52
+  [-] Partition type GUID: 5594C694-C871-4B5F-90B1-690A6F68E0F7
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: AD9C5F57-A825-612A-3E37-26821E79E599
+  [-] First LBA: 1048576
+      => Disk Offset: 0x20000000
+  [-] Last LBA: 1572863
+      => Disk Offset: 0x2FFFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: cache
+
+ [-] Partition 53
+  [-] Partition type GUID: 7DB6AC55-ECB5-4E02-80DA-4D335B973332
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 456B8B40-77ED-A116-0531-932DFFA860E2
+  [-] First LBA: 1572864
+      => Disk Offset: 0x30000000
+  [-] Last LBA: 2097151
+      => Disk Offset: 0x3FFFFE00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: oem
+
+ [-] Partition 54
+  [-] Partition type GUID: 97D7B011-54DA-4835-B3C4-917AD6E73D74
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: FF76577D-99C3-94C0-F45C-AED0345821EE
+  [-] First LBA: 2097152
+      => Disk Offset: 0x40000000
+  [-] Last LBA: 8388607
+      => Disk Offset: 0xFFFFFE00
+  [-] Attribute flags: 1152921504606846976, UNKNOWN
+  [-] Partition Name: system
+
+ [-] Partition 55
+  [-] Partition type GUID: 97D7B011-54DA-4835-B3C4-917AD6E73D74
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: 7B928E1A-A698-51A3-2863-D6A2F655AD33
+  [-] First LBA: 8388608
+      => Disk Offset: 0x100000000
+  [-] Last LBA: 10485759
+      => Disk Offset: 0x13FFFFE00
+  [-] Attribute flags: 1152921504606846976, UNKNOWN
+  [-] Partition Name: vendor
+
+ [-] Partition 56
+  [-] Partition type GUID: 1B81E7E6-F50D-419B-A739-2AEEF8DA3335
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: A48A92DC-DD5D-E4BD-DF6C-9386C3E1081F
+  [-] First LBA: 10485760
+      => Disk Offset: 0x140000000
+  [-] Last LBA: 12189695
+      => Disk Offset: 0x173FFFE00
+  [-] Attribute flags: 1152921504606846976, UNKNOWN
+  [-] Partition Name: cust
+
+ [-] Partition 57
+  [-] Partition type GUID: 1B81E7E6-F50D-419B-A739-2AEEF8DA3335
+      => Partition type: unknown partition, UNKNOWN
+  [-] Unique partition GUID: FF80CF82-39AC-43C0-D035-B7FB80FC4EFC
+  [-] First LBA: 12189696
+      => Disk Offset: 0x174000000
+  [-] Last LBA: 61071326
+      => Disk Offset: 0x747BFBC00
+  [-] Attribute flags: 0, System Partition
+  [-] Partition Name: userdata
+
+[+] Partition table md5: 78172ce3caf3b694c37c6accf933c9df
+
+[+] WARNING!! Backup GPT header can not found. Check your disk image.
+[+] WARNING!! Backup GPT header offset: 0x747BFFE00

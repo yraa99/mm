@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-874" standalone="yes"?>
+<MikoForce>
+  <program   label="config"  fix=""/>
+  <program   label="fsg"   fix=""/>
+  <program   label="modem"   fix="" />
+  <program   label="modemst1"  fix="erase"/>
+   <program   label="modemst2"  fix="erase" />
+  <program   label="oppodycnvbk"   fix=""/>
+  <program   label="opporesereve2"   fix="" />
+  <program   label="oppostanvbk"   fix=""/>
+  <program   label="persist"   fix=""/>
+</MikoForce>
