@@ -26,44 +26,12 @@ jobs:
           Get-FileHash 'work\Loader.exe' -Algorithm SHA1
           Get-FileHash 'work\Loader.exe' -Algorithm SHA256
 
-      - name: Analyze loader IL and locate payload decrypt call
+      - name: Analyze loader IL
         shell: pwsh
         run: |
-          New-Item -ItemType Directory -Force -Path work\analyzer | Out-Null
-          Set-Location work\analyzer
-          dotnet new console --framework net9.0 --force | Out-Null
-          dotnet add package dnlib --version 4.5.0 | Out-Null
-          @'
-using dnlib.DotNet;
-using dnlib.DotNet.Emit;
-using System;
-using System.Linq;
-
-class Program {
-  static void Main() {
-    var mod = ModuleDefMD.Load(@"..\Loader.exe");
-    using var sw = new System.IO.StreamWriter(@"..\IL-analysis.txt", false);
-    sw.WriteLine("=== MODULE ===");
-    sw.WriteLine(mod.FullName);
-    foreach (var t in mod.GetTypes()) {
-      foreach (var m in t.Methods) {
-        if (!m.HasBody) continue;
-        bool gc = m.ReturnType.FullName.Contains("GCHandle", StringComparison.OrdinalIgnoreCase);
-        bool two = m.Parameters.Count == 2;
-        if (gc || (m.Name.String.Contains("Main", StringComparison.OrdinalIgnoreCase))) {
-          sw.WriteLine($"\n=== {m.FullName} ===");
-          foreach (var ins in m.Body.Instructions) sw.WriteLine($"{ins.Offset:X8}: {ins}");
-        }
-        if (gc && two) sw.WriteLine($"CANDIDATE_DECRYPT={m.FullName}");
-      }
-    }
-  }
-}
-'@ | Set-Content Program.cs -Encoding utf8
-          dotnet run -c Release
-          Get-Content ..\IL-analysis.txt | Select-Object -First 1200
-          Set-Location ..\..
-
+          if (!(Test-Path 'mk/Loader.exe')) { throw 'mk/Loader.exe not found' }
+          dotnet run --project tools/LoaderAnalyzer/LoaderAnalyzer.csproj -- 'mk/Loader.exe' 'work\IL-analysis.txt'
+          Get-Content 'work\IL-analysis.txt' -TotalCount 1500
       - name: Build UnConfuserEx
         shell: pwsh
         run: |
