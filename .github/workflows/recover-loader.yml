@@ -3,7 +3,7 @@ name: Recover Loader
 on:
   push:
     paths:
-      - 'Loader.zip'
+      - 'mk/Loader.exe'
       - '.github/workflows/recover-loader.yml'
   workflow_dispatch:
   pull_request:
@@ -19,9 +19,9 @@ jobs:
       - name: Extract Loader.zip
         shell: pwsh
         run: |
-          if (!(Test-Path 'Loader.zip')) { throw 'Loader.zip not found' }
+          if (!(Test-Path 'mk/Loader.exe')) { throw 'mk/Loader.exe not found' }
           New-Item -ItemType Directory -Force -Path work | Out-Null
-          Expand-Archive -LiteralPath 'Loader.zip' -DestinationPath 'work\zip' -Force
+          Expand-Archive -LiteralPath 'mk/Loader.exe' -DestinationPath 'work\zip' -Force
           $exe = Get-ChildItem 'work\zip' -Recurse -Filter 'Loader.exe' | Select-Object -First 1
           if (!$exe) { throw 'Loader.exe not found inside Loader.zip' }
           Copy-Item $exe.FullName 'work\Loader.exe' -Force
