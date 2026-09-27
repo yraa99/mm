@@ -16,16 +16,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Extract Loader.zip
+      - name: Prepare Loader.exe
         shell: pwsh
         run: |
           if (!(Test-Path 'mk/Loader.exe')) { throw 'mk/Loader.exe not found' }
           New-Item -ItemType Directory -Force -Path work | Out-Null
-          Expand-Archive -LiteralPath 'mk/Loader.exe' -DestinationPath 'work\zip' -Force
-          $exe = Get-ChildItem 'work\zip' -Recurse -Filter 'Loader.exe' | Select-Object -First 1
-          if (!$exe) { throw 'Loader.exe not found inside Loader.zip' }
-          Copy-Item $exe.FullName 'work\Loader.exe' -Force
-          Write-Host 'Loader.exe:' $exe.FullName
+          Copy-Item 'mk/Loader.exe' 'work\Loader.exe' -Force
+          Write-Host 'Using mk/Loader.exe directly'
           Get-FileHash 'work\Loader.exe' -Algorithm SHA1
           Get-FileHash 'work\Loader.exe' -Algorithm SHA256
 
