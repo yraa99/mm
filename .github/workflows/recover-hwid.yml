@@ -1,0 +1,248 @@
+name: Recover Loader HWID/Key
+
+on:
+  push:
+    paths:
+      - 'mk/Loader.exe'
+      - '.github/workflows/recover-hwid.yml'
+  workflow_dispatch:
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+
+      - name: Install ILSpy
+        shell: bash
+        run: |
+          dotnet tool install --global ilspycmd
+          echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+          ilspycmd --version
+
+      - name: Reconstruct embedded payload
+        shell: python
+        run: |
+          import struct, lzma, pathlib, hashlib, re
+
+          src = pathlib.Path("mk/Loader.exe")
+          data = src.read_bytes()
+
+          RAW_OFF = 592
+          RAW_LEN = 9267640
+          SEED = 1002870988
+
+          if len(data) < RAW_OFF + RAW_LEN:
+              raise SystemExit(f"Loader.exe too small: {len(data)}")
+
+          blob = data[RAW_OFF:RAW_OFF + RAW_LEN]
+          if len(blob) % 4:
+              raise SystemExit("Embedded uint blob is not 4-byte aligned")
+
+          a = [0] * 16
+          a2 = [0] * 16
+          num = SEED
+          mask = 0xffffffff
+
+          for i in range(16):
+              num = (num * num) % 339722377
+              a2[i] = num
+              a[i] = (num * num) % 1145919227
+
+          a[0] = ((a[0] ^ a2[0]) * 2740305303) & mask
+          a[1] = (a[1] * a2[1] + 1160549511) & mask
+          a[2] = ((a[2] + a2[2]) * 2740305303) & mask
+          a[3] = (a[3] * a2[3] + 1160549511) & mask
+          a[4] = ((a[4] ^ a2[4]) * 2740305303) & mask
+          a[5] = (a[5] * a2[5] * 2740305303) & mask
+          a[6] = ((a[6] ^ a2[6]) * 2740305303) & mask
+          a[7] = ((a[7] * a2[7]) ^ 1326016725) & mask
+          a[8] = ((a[8] ^ a2[8]) * 2740305303) & mask
+          a[9] = (a[9] * a2[9] * 2740305303) & mask
+          a[10] = (a[10] ^ a2[10] ^ 1326016725) & mask
+          a[11] = (a[11] * a2[11] + 1160549511) & mask
+          a[12] = ((a[12] + a2[12]) * 2740305303) & mask
+          a[13] = (a[13] + a2[13] + 1160549511) & mask
+          a[14] = ((a[14] + a2[14]) * 2740305303) & mask
+          a[15] = ((a[15] + a2[15]) * 2740305303) & mask
+
+          out = bytearray(len(blob))
+          for j in range(0, len(blob), 4):
+              x = struct.unpack_from("<I", blob, j)[0]
+              k = (j // 4) & 15
+              y = (x ^ a[k]) & mask
+              a[k] = ((a[k] ^ y) + 1037772825) & mask
+              struct.pack_into("<I", out, j, y)
+
+          # The first layer yields an LZMA stream:
+          # properties (5 bytes), uncompressed size (8 bytes), compressed data.
+          if out[:1] != b"\\x5d":
+              pathlib.Path("recovery-layer1.bin").write_bytes(out)
+              raise SystemExit("Layer-1 output does not start with expected LZMA properties")
+
+          props = out[0]
+          dict_size = struct.unpack_from("<I", out, 1)[0]
+          unpacked_size = struct.unpack_from("<Q", out, 5)[0]
+          comp = bytes(out[13:])
+
+          lc = props & 7
+          lp = (props >> 3) & 7
+          pb = props >> 6
+          if lc > 8 or lp > 4 or pb > 4 or lc + lp > 4:
+              raise SystemExit(f"Invalid LZMA properties: {props:#x}")
+
+          filters = [{"id": lzma.FILTER_LZMA1, "dict_size": dict_size,
+                      "lc": lc, "lp": lp, "pb": pb}]
+          dec = lzma.LZMADecompressor(lzma.FORMAT_RAW, filters=filters)
+          layer2 = dec.decompress(comp, max_length=unpacked_size)
+          if len(layer2) != unpacked_size:
+              raise SystemExit(f"LZMA size mismatch: got {len(layer2)}, expected {unpacked_size}")
+
+          # Final XOR layer. The seed is the final value of 'num' after the
+          # 16-round schedule above, exactly matching <Module>.Decrypt.
+          final_num = num
+          plain = bytearray(layer2)
+          n = final_num
+          for i in range(len(plain)):
+              plain[i] ^= n & 0xff
+              if (i & 255) == 0:
+                  n = (n * n) % 9067703
+
+          pathlib.Path("koi.bin").write_bytes(plain)
+          pathlib.Path("koi.exe").write_bytes(plain)
+
+          print("koi size:", len(plain))
+          print("koi sha256:", hashlib.sha256(plain).hexdigest())
+          print("koi magic:", plain[:16].hex())
+          if plain[:2] != b"MZ":
+              raise SystemExit("Recovered payload is not a PE (missing MZ)")
+
+      - name: Decompile recovered payload
+        shell: bash
+        run: |
+          set +e
+          mkdir -p decompiled
+          ilspycmd -p --nested-directories --ignore-decompilation-errors -o decompiled koi.exe > ilspy.stdout.txt 2> ilspy.stderr.txt
+          echo "ILSpy exit code: $?" | tee ilspy.exit.txt
+          ilspycmd --list class koi.exe > types.txt 2>&1 || true
+          ilspycmd --list method koi.exe > methods.txt 2>&1 || true
+          ilspycmd --list-resources koi.exe > resources.txt 2>&1 || true
+
+      - name: Extract HWID/key evidence
+        shell: python
+        run: |
+          import pathlib, re, json, hashlib
+
+          root = pathlib.Path(".")
+          exts = {".cs", ".txt", ".json", ".config", ".resources", ".xml"}
+          files = [p for p in root.rglob("*") if p.is_file() and p.suffix.lower() in exts and "decompiled" in p.parts]
+
+          terms = [
+              "MachineGuid", "GenerateKey", "HWID", "HostId", "hostid", "hardware",
+              "RegistryKey", "Microsoft.Win32", "SOFTWARE\\Microsoft\\Cryptography",
+              "Win32_Processor", "ProcessorId", "BaseBoard", "SerialNumber",
+              "ProductId", "license", "activation", "key", "Key", "GUID", "MD5",
+              "SHA1", "SHA256", "SHA512", "GetValue", "ManagementObject",
+              "ManagementClass", "ComputerName", "UserName"
+          ]
+
+          report = []
+          combined = []
+          for p in files:
+              try:
+                  s = p.read_text(encoding="utf-8", errors="ignore")
+              except Exception:
+                  continue
+              combined.append((str(p), s))
+
+          for term in terms:
+              hits = []
+              for name, s in combined:
+                  for m in re.finditer(re.escape(term), s, re.I if term not in {"MachineGuid","HWID","GenerateKey","HostId","hostid"} else 0):
+                      a, b = max(0, m.start()-700), min(len(s), m.end()+1200)
+                      hits.append({"file": name, "context": s[a:b]})
+                      if len(hits) >= 20:
+                          break
+                  if len(hits) >= 20:
+                      break
+              if hits:
+                  report.append({"term": term, "hits": hits})
+
+          pathlib.Path("HWID-EVIDENCE.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+
+          with open("HWID-EVIDENCE.txt", "w", encoding="utf-8") as f:
+              f.write("Recovered payload HWID/key evidence\\n")
+              f.write("="*80 + "\\n")
+              for item in report:
+                  f.write("\\n## " + item["term"] + "\\n")
+                  for h in item["hits"]:
+                      f.write("\\n--- " + h["file"] + " ---\\n")
+                      f.write(h["context"] + "\\n")
+
+          # Unicode + ASCII string extraction from the recovered PE.
+          b = pathlib.Path("koi.bin").read_bytes()
+          ascii_strings = re.findall(rb"[ -~]{6,}", b)
+          utf16_strings = re.findall(rb"(?:[ -~]\\x00){6,}", b)
+          with open("koi-strings.txt", "w", encoding="utf-8") as f:
+              for x in ascii_strings:
+                  f.write(x.decode("ascii", "ignore") + "\\n")
+              for x in utf16_strings:
+                  f.write(x.decode("utf-16le", "ignore") + "\\n")
+
+          interesting = []
+          alltxt = pathlib.Path("koi-strings.txt").read_text(encoding="utf-8", errors="ignore")
+          for pat in ["MachineGuid", "hostid", "GenerateKey", "HWID", "Registry", "ProcessorId",
+                      "ProductId", "SerialNumber", "activation", "license", "key"]:
+              for m in re.finditer(pat, alltxt, re.I):
+                  interesting.append(alltxt[max(0,m.start()-300):m.end()+700])
+          pathlib.Path("koi-strings-interesting.txt").write_text(
+              "\n\n===== HIT =====\n".join(interesting[:200]), encoding="utf-8")
+
+      - name: Build final report
+        shell: bash
+        run: |
+          {
+            echo "LOADER HWID/KEY RECOVERY"
+            echo "======================="
+            echo
+            echo "Input: mk/Loader.exe"
+            sha256sum mk/Loader.exe
+            echo
+            echo "Recovered payload:"
+            sha256sum koi.bin
+            file koi.bin
+            echo
+            echo "Top HWID/key strings:"
+            grep -Ein -C 4 'MachineGuid|hostid|GenerateKey|HWID|ProcessorId|ProductId|SerialNumber|activation|license' koi-strings-interesting.txt | head -n 500 || true
+            echo
+            echo "ILSpy errors:"
+            cat ilspy.stderr.txt || true
+          } > RECOVERY-REPORT.txt
+
+      - name: Upload complete recovery artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: loader-hwid-key-recovery
+          if-no-files-found: error
+          path: |
+            koi.bin
+            koi.exe
+            decompiled/**
+            HWID-EVIDENCE.txt
+            HWID-EVIDENCE.json
+            koi-strings.txt
+            koi-strings-interesting.txt
+            types.txt
+            methods.txt
+            resources.txt
+            ilspy.stdout.txt
+            ilspy.stderr.txt
+            ilspy.exit.txt
+            RECOVERY-REPORT.txt
