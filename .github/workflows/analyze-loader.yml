@@ -24,31 +24,31 @@ jobs:
           dotnet new console --framework net9.0 --force
           dotnet add package dnlib --version 4.5.0
           @'
-using dnlib.DotNet;
-using System;
+          using dnlib.DotNet;
+          using System;
 
-class Program
-{
-    static void Main()
-    {
-        var mod = ModuleDefMD.Load(@"..\mk\Loader.exe");
-        using var sw = new System.IO.StreamWriter(@"..\IL-analysis.txt", false);
-        sw.WriteLine("MODULE=" + mod.FullName);
-        foreach (var t in mod.GetTypes())
-        foreach (var m in t.Methods)
-        {
-            if (!m.HasBody) continue;
-            bool gc = m.ReturnType.FullName.Contains("GCHandle", StringComparison.OrdinalIgnoreCase);
-            bool main = m.Name.String.Contains("Main", StringComparison.OrdinalIgnoreCase);
-            if (!gc && !main) continue;
-            sw.WriteLine("\n=== " + m.FullName + " ===");
-            foreach (var i in m.Body.Instructions)
-                sw.WriteLine(i.Offset.ToString("X8") + ": " + i);
-            if (gc && m.Parameters.Count == 2)
-                sw.WriteLine("CANDIDATE_DECRYPT=" + m.FullName);
-        }
-    }
-}
+          class Program
+          {
+              static void Main()
+              {
+                  var mod = ModuleDefMD.Load(@"..\mk\Loader.exe");
+                  using var sw = new System.IO.StreamWriter(@"..\IL-analysis.txt", false);
+                  sw.WriteLine("MODULE=" + mod.FullName);
+                  foreach (var t in mod.GetTypes())
+                  foreach (var m in t.Methods)
+                  {
+                      if (!m.HasBody) continue;
+                      bool gc = m.ReturnType.FullName.Contains("GCHandle", StringComparison.OrdinalIgnoreCase);
+                      bool main = m.Name.String.Contains("Main", StringComparison.OrdinalIgnoreCase);
+                      if (!gc && !main) continue;
+                      sw.WriteLine("\n=== " + m.FullName + " ===");
+                      foreach (var i in m.Body.Instructions)
+                          sw.WriteLine(i.Offset.ToString("X8") + ": " + i);
+                      if (gc && m.Parameters.Count == 2)
+                          sw.WriteLine("CANDIDATE_DECRYPT=" + m.FullName);
+                  }
+              }
+          }
 '@ | Set-Content Program.cs -Encoding utf8
           dotnet run -c Release
           Set-Location ..
